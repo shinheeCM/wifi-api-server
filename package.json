@@ -1,0 +1,18 @@
+{
+  "name": "wifi-api-server",
+  "version": "1.0.1",
+  "description": "API server to manage Wi-Fi connections, get IP addresses, and handle system network information using nmcli",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Roy",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.3.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
