@@ -16,3 +16,10 @@
     npm i
     sudo npm start
 ```
+
+# APIS
+```
+    curl http://localhost:3000/api/wifi-networks
+    curl http://localhost:3000/api/system-info
+
+```
