@@ -9,8 +9,8 @@ services:
     networks:
       alpha_network:
         ipv4_address: 192.168.11.29
-    ports:
-      - "3001:3000" # Expose port 3001 externally
+    # ports:
+    #   - "3001:3000" # Expose port 3001 externally
     volumes:
       - ./server_1:/app
     environment:
@@ -24,8 +24,8 @@ services:
     networks:
       alpha_network:
         ipv4_address: 192.168.11.28  # Use a different IP range for beta_network
-    ports:
-      - "3002:3000" # Expose port 3002 externally
+    # ports:
+    #   - "3002:3000" # Expose port 3002 externally
     volumes:
       - ./server_2:/app
     environment:
