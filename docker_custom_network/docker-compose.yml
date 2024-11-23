@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # Node.js Server 1
+  node_server_1:
+    image: node:14 # Use Node.js 14 as the base image
+    container_name: node_server_1
+    command: "node /app/server.js" # Path to your Node.js server script
+    networks:
+      alpha_network:
+        ipv4_address: 192.168.11.29
+    ports:
+      - "3001:3000" # Expose port 3001 externally
+    volumes:
+      - ./server_1:/app
+    environment:
+      - NODE_ENV=development
+  
+  # Node.js Server 2
+  node_server_2:
+    image: node:14 # Use Node.js 14 as the base image
+    container_name: node_server_2
+    command: "node /app/server.js" # Path to your Node.js server script
+    networks:
+      alpha_network:
+        ipv4_address: 192.168.11.28  # Use a different IP range for beta_network
+    ports:
+      - "3002:3000" # Expose port 3002 externally
+    volumes:
+      - ./server_2:/app
+    environment:
+      - NODE_ENV=development
+
+networks:
+  alpha_network:
+    driver: ipvlan
+    name: alpha_network
+    driver_opts:
+      ipvlan_mode: l2
+      parent: enp7s0f1  # your ethernet port enp2s0
+    ipam:
+      config:
+        - subnet: 192.168.11.0/24 # your subnet
+          gateway: 192.168.11.2  # your gateway
+
+  # beta_network:
+  #   driver: ipvlan
+  #   name: beta_network
+  #   driver_opts:
+  #     ipvlan_mode: l2
+  #     parent: enp7s0f1  # your ethernet port enp2s0
+  #   ipam:
+  #     config:
+  #       - subnet: 192.168.12.0/24 # Use a different subnet (192.168.12.0/24)
+  #         gateway: 192.168.12.2  # your gateway for the beta network
