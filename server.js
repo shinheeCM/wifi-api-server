@@ -36,7 +36,7 @@ app.post('/api/connect-wifi', (req, res) => {
     return res.status(400).json({ error: 'SSID and password are required' });
   }
 
-  exec(`nmcli dev wifi connect "${ssid}" password "${password}"`, (err, stdout, stderr) => {
+  exec(`sudo nmcli dev wifi connect "${ssid}" password "${password}"`, (err, stdout, stderr) => {
     if (err || stderr) {
       return res.status(500).json({ error: 'Failed to connect to Wi-Fi', details: stderr });
     }
