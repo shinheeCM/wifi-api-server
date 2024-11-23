@@ -30,4 +30,6 @@
     docker run -d -p 3000:3000 --name wifi-api-container --rm --privileged wonbot/shinheeagv:wifi-api-server
     docker kill wifi-api-container
     docker rm wifi-api-container
+    docker push wonbot/shinheeagv:wifi-api-server
+    docker pull wonbot/shinheeagv:wifi-api-server
 ```
