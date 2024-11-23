@@ -27,9 +27,16 @@
 # docker build
 ```
     docker build -t wonbot/shinheeagv:wifi-api-server .
-    docker run -d -p 3000:3000 --name wifi-api-container --rm --privileged wonbot/shinheeagv:wifi-api-server
+    docker run -d --net=host --name wifi-api-container --rm --privileged wonbot/shinheeagv:wifi-api-server
+    docker logs -f wifi-api-container
     docker kill wifi-api-container
     docker rm wifi-api-container
     docker push wonbot/shinheeagv:wifi-api-server
     docker pull wonbot/shinheeagv:wifi-api-server
+```
+
+# docker compose file
+```
+     docker compose up 
+     docker compose down
 ```
