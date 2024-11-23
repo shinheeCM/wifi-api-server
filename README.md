@@ -23,3 +23,9 @@
     curl http://localhost:3000/api/system-info
 
 ```
+
+# docker build
+```
+    docker build -t wonbot/shinheeagv:wifi-api-server .
+    
+```
