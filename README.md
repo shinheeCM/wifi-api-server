@@ -10,3 +10,9 @@
     git merge master --allow-unrelated-histories
     git push origin main
 ```
+
+# run node
+```
+    npm i
+    sudo npm start
+```
