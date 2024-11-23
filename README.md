@@ -27,7 +27,15 @@
 # docker build
 ```
     docker build -t wonbot/shinheeagv:wifi-api-server .
-    docker run -d --net=host --name wifi-api-container --rm --privileged wonbot/shinheeagv:wifi-api-server
+    docker run -d \
+        --net=host \
+        --name wifi-api-container \
+        --rm \
+        --privileged \
+        -v /var/run/dbus:/var/run/dbus \
+        -v /dev/mem:/dev/mem \
+        wonbot/shinheeagv:wifi-api-server
+
     docker logs -f wifi-api-container
     docker kill wifi-api-container
     docker rm wifi-api-container
